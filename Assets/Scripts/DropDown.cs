@@ -2,20 +2,17 @@ using UnityEngine;
 
 public class DropDown : MonoBehaviour
 {
-    public GameObject imageA; // Car frame
-    public GameObject imageB; // Motorcycle frame
+    public GameObject imageA;
+    public GameObject imageB;
 
-    // Car engines
     public GameObject DzinejsA;
     public GameObject dzinejsB;
     public GameObject dzinejsC;
 
-    // Car bodies
     public GameObject VirsbuveA;
     public GameObject VirsbuveB;
     public GameObject VirsbuveC;
 
-    // Car tires (6 total)
     public GameObject riepaA;
     public GameObject riepaB;
     public GameObject riepaC;
@@ -23,23 +20,19 @@ public class DropDown : MonoBehaviour
     public GameObject riepaE;
     public GameObject riepaF;
 
-    // Car drop zones
     public GameObject carDropZone1;
     public GameObject carDropZone2;
     public GameObject carDropZone3;
     public GameObject carDropZone4;
 
-    // Bike engines
     public GameObject DzinejsABike;
     public GameObject dzinejsBBike;
     public GameObject dzinejsCBike;
 
-    // Bike bodies
     public GameObject VirsbuveABike;
     public GameObject VirsbuveBBike;
     public GameObject VirsbuveCBike;
 
-    // Bike tires (6 total)
     public GameObject riepaABike;
     public GameObject riepaBBike;
     public GameObject riepaCBike;
@@ -47,15 +40,16 @@ public class DropDown : MonoBehaviour
     public GameObject riepaEBike;
     public GameObject riepaFBike;
 
-    // Bike drop zones
     public GameObject bikeDropZone1;
     public GameObject bikeDropZone2;
     public GameObject bikeDropZone3;
     public GameObject bikeDropZone4;
 
+    public GameObject ScrollA;
+    public GameObject ScrollB;
+
     void Start()
     {
-        // Hide all bike parts at launch
         DzinejsABike.SetActive(false);
         dzinejsBBike.SetActive(false);
         dzinejsCBike.SetActive(false);
@@ -75,17 +69,20 @@ public class DropDown : MonoBehaviour
         bikeDropZone2.SetActive(false);
         bikeDropZone3.SetActive(false);
         bikeDropZone4.SetActive(false);
+
+        ScrollB.SetActive(false);
     }
 
     public void Dropdown(int index)
     {
         bool isCar = index == 0;
 
-        // Frame switching
+        ScrollA.SetActive(isCar);
+        ScrollB.SetActive(!isCar);
+
         imageA.SetActive(isCar);
         imageB.SetActive(!isCar);
 
-        // Car parts
         DzinejsA.SetActive(isCar);
         dzinejsB.SetActive(isCar);
         dzinejsC.SetActive(isCar);
@@ -106,7 +103,6 @@ public class DropDown : MonoBehaviour
         carDropZone3.SetActive(isCar);
         carDropZone4.SetActive(isCar);
 
-        // Bike parts
         DzinejsABike.SetActive(!isCar);
         dzinejsBBike.SetActive(!isCar);
         dzinejsCBike.SetActive(!isCar);
